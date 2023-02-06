@@ -1,8 +1,8 @@
 {
-    "ZoneId": "0777091bb12ec47977fcc17e08b73a64",
+    "ZoneId": "ZONE_ID",
     "Type": "A",
-    "Name": "example.apptagger.com",
-    "Content": "62.116.130.2",
+    "Name": "DNS_NAME",
+    "Content": "IP_ADDRESS",
     "Proxied": false,
     "Ttl": 600
 }

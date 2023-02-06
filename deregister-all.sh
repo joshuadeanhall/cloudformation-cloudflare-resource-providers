@@ -4,7 +4,7 @@
 #
 # Does not un-publish any published versions.
 #
-# Run this from the resource directory, for example `Snowflake-Database-Database/`
+# Run this from the resource directory, for example `Cloudflare-Dns-Record/`
 #
 # Args
 #

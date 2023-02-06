@@ -1,4 +1,4 @@
-"Get the Snowflake secret from secrets manager and write it to ~/.cfn-cli/typeConfiguration.json. .rpdk-config files indicates what type configuration the contract tests are looking for"
+"Get the Cloudflare secret from secrets manager and write it to ~/.cfn-cli/typeConfiguration.json. .rpdk-config files indicates what type configuration the contract tests are looking for"
 
 import boto3
 import base64
@@ -9,7 +9,7 @@ from botocore.exceptions import ClientError
 def get_secret():
     "Get the secret from secrets manager"
 
-    secret_name = "snowflake-type-configuration"
+    secret_name = "cloudflare-type-configuration"
     region_name = "us-east-1"
     session = boto3.session.Session()
     client = session.client(
