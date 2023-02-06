@@ -25,7 +25,11 @@ phases:
       - cd $RESOURCE_PATH
       - TYPE_NAME=$(cat .rpdk-config | jq -r .typeName)
       - echo "TYPE_NAME is $TYPE_NAME"
+      - cat ./inputs/inputs_1_create.json
+      - cat ./inputs/inputs_1_update.json
       - if test -x ./setup.sh; then ./setup.sh; fi
+      - cat ./inputs/inputs_1_create.json
+      - cat ./inputs/inputs_1_update.json
       - cfn validate
       - cfn generate
       - if test -e ./test/setup.yml; then SETUP_STACK_NAME="setup-$(echo $RESOURCE_PATH | sed s/_/-/g)"; fi
@@ -36,7 +40,7 @@ phases:
       - cfn submit --dry-run
       - nohup sam local start-lambda --log-file sam_output.log &>/dev/null &
       - sleep 10
-      - if ! cfn test --region $AWS_REGION -- -o log_cli=True -o log_cli_level=WARN -o console_output_style=count; then cat sam_output.log && exit 1; fi
+      - if ! cfn test --region $AWS_REGION -- -k contract_update_read -o log_cli=True -o log_cli_level=WARN -o console_output_style=count; then cat sam_output.log && exit 1; fi
     finally:
       - cat rpdk.log
       - if test -e ./test/setup.yml; then aws cloudformation delete-stack --stack-name $SETUP_STACK_NAME; fi

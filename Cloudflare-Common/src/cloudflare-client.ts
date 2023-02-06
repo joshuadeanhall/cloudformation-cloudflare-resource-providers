@@ -34,6 +34,7 @@ export class CloudflareClient {
     }
 
     public async doRequest<ResponseType>(method: 'get' | 'put' | 'post' | 'delete', path: string, params: any = {}, body?: {}, headers?: {[key: string]: string}): Promise<AxiosResponse<ResponseType>> {
+        console.log(`HERE!!!!!!!!!!!!!!!!!!!!!!! Method: ${method} path: ${path} body ${JSON.stringify(body)} apiKey ${this.apiKey}, headers: ${JSON.stringify(headers)}`);
         return await axios.request<ResponseType>({
             url: `${this.baseUrl}${path}`,
             params: params,
