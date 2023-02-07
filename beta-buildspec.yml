@@ -28,7 +28,7 @@ phases:
       - cfn validate
       - cfn generate
       - npm install && npm run build
-      - cfn submit --region $AWS_REGION --set-default
+      - cfn submit --region us-west-2 --set-default
       - python ../get_type_configuration.py
       - aws cloudformation set-type-configuration --type RESOURCE --type-name $TYPE_NAME --configuration-alias default --configuration $(cat /root/.cfn-cli/typeConfiguration.json| jq -c "")
       - INTEG_STACK_NAME="integ-$(echo $RESOURCE_PATH | tr '[:upper:]' '[:lower:]')"
