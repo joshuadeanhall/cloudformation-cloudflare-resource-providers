@@ -2,24 +2,27 @@ Resources:
   TestCloudflareLoadBalancer:
     Type: Cloudflare::LoadBalancer::LoadBalancer
     Properties:
-      ZoneId: "ZONE_ID"
+      ZoneId: ZONE_ID
       Proxied: false
-      Name: "DOMAIN_NAME"
-      SessionAffinity: "cookie"
+      Name: DOMAIN_NAME
+      SessionAffinity: cookie
       SessionAffinityTtl: 82800
       SessionAffinityAttributes:
-        ZeroDowntimeFailover: "none"
-      SteeringPolicy: "off"
+        ZeroDowntimeFailover: none
+      SteeringPolicy: 'off'
+      RegionPools: { }
+      CountryPools: { }
       RandomSteering:
         DefaultWeight: 1
-      DefaultPools: ["POOL_ID"]
+      DefaultPools:
+        - POOL_ID
       Rules:
-        - name: "CustomRule1"
+        - name: CustomRule1
           priority: 0
           disabled: false
-          condition: "(http.request.uri eq \" /content?page=1234\")"
+          condition: (http.request.uri eq " /content?page=1234")
           overrides: { }
           terminates: true
-      FallbackPool: "POOL_ID",
+      FallbackPool: POOL_ID
       Enabled: true
       Ttl: 30
