@@ -10,8 +10,6 @@ Resources:
       SessionAffinityAttributes:
         ZeroDowntimeFailover: none
       SteeringPolicy: 'off'
-      RegionPools: { }
-      CountryPools: { }
       RandomSteering:
         DefaultWeight: 1
       DefaultPools:
@@ -21,7 +19,6 @@ Resources:
           priority: 0
           disabled: false
           condition: (http.request.uri eq " /content?page=1234")
-          overrides: { }
           terminates: true
       FallbackPool: POOL_ID
       Enabled: true
