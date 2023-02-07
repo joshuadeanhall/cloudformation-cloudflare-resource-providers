@@ -4,4 +4,4 @@
 
 cat example_inputs/inputs_1_create.json | sed "s/ACCOUNT_ID/${ACCOUNT_ID}/g" > inputs/inputs_1_create.json
 cat example_inputs/inputs_1_update.json | sed "s/ACCOUNT_ID/${ACCOUNT_ID}/g" > inputs/inputs_1_update.json
-cat test/integ-template.yml | sed "s/ZONEACCOUNT_ID/${ACCOUNT_ID}/g" > test/integ.yml
+cat test/integ-template.yml | sed "s/ACCOUNT_ID/${ACCOUNT_ID}/g" > test/integ.yml
