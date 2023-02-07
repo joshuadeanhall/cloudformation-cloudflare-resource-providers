@@ -30,6 +30,7 @@ phases:
       - npm install && npm run build
       - cfn submit --region us-west-2 --set-default
       - python ../get_type_configuration.py
+      - cat /root/.cfn-cli/typeConfiguration.json
       - aws cloudformation set-type-configuration --region us-west-2 --type RESOURCE --type-name $TYPE_NAME --configuration-alias default --configuration $(cat /root/.cfn-cli/typeConfiguration.json| jq -c "")
       - INTEG_STACK_NAME="integ-$(echo $RESOURCE_PATH | tr '[:upper:]' '[:lower:]')"
       - aws cloudformation create-stack --region us-west-2 --stack-name $INTEG_STACK_NAME --template-body file://test/integ.yml
