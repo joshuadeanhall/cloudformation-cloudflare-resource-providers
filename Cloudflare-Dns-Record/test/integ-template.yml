@@ -1,6 +1,6 @@
 Resources:
   TestCloudflareDnsRecord:
-    Type: CLOUDFLARE::DNS::RECORD
+    Type: Cloudflare::Dns::Record
     Properties:
       ZoneId: "ZONE_ID"
       Type: "A"
